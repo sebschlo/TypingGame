@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">TypingGame</string>
+    <string name="mainText">Hello world!</string>
+    <string name="action_settings">Switch User</string>
+    <string name="submit">Submit</string>
+    <string name="cancel">Quit</string>
+    <string name="hint">Type the sentence here!</string>
+    <string name="correct">Correct! It took you %.2f seconds to type the sentence. Do you want to play again? </string>
+    <string name="incorrect">You failed! Do you want to try again?</string>
+
+    <string name="game_details">Type the sentence!</string>
+    <string name="game_title">High Scores</string>
+    <string name="score1">High Scores for HARD level.</string>
+    <string name="score2">High Scores for MEDIUM level.</string>
+    <string name="score3">High Scores for EASY level.</string>
+    <string name="play">PLAY GAME</string>
+    <string name="noUser">Not currently signed in.</string>
+
+    <string name="difficultyDialog">Easy sentences have 4 words, medium ones have 7, and hard ones have 10.</string>
+    <string name="difficultyDialogTitle">Choose your difficulty level.</string>
+
+    <string name="userDialogTitle">Please sign in</string>
+    <string name="userDialog">This will allow your name to be associated with your score</string>
+
+    <string name="userTextView">You are logged in as %s.</string>
+
+    <string name="readyDialog">Welcome to TypingGame!</string>
+    <string name="readyDialog2">Are you ready?</string>
+
+    <string name="sentenceTime">You typed the sentence in %.2f seconds!</string>
+    <string name="sentenceHighScore">You beat the high score! </string>
+    <string name="noHighScore"> The current high-score is %.2f seconds</string>
+
+
+</resources>

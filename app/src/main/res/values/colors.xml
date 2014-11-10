@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bg">#ffe5e5e5</color>
+    <color name="textEdit">#0099CC</color>
+    <color name="cancel">#CC0000</color>
+    <color name="submit">#669900</color>
+
+
+</resources>
