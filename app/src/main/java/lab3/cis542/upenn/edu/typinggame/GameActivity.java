@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * Created by Sebastian on 11/10/14.
@@ -46,6 +47,8 @@ public class GameActivity extends Activity implements View.OnClickListener {
     private Handler handler;
 
     private ImageView imView;
+
+    ScoreCalculator scorer;
 
 
 
@@ -82,6 +85,9 @@ public class GameActivity extends Activity implements View.OnClickListener {
 
         // set up image view for happy/sad face
         imView = (ImageView) findViewById(R.id.faceView);
+
+        // set up scorer
+        scorer = new ScoreCalculator();
     }
 
 
@@ -137,6 +143,7 @@ public class GameActivity extends Activity implements View.OnClickListener {
         // get the best times from shared preferences
         mSharedPreferences = getSharedPreferences(PREFS, MODE_PRIVATE);
         final float bestTime = mSharedPreferences.getFloat(String.format("%dBest",DIFFICULTY), -1);
+        final int bestScore = mSharedPreferences.getInt(String.format("%dBestScore", DIFFICULTY), -1);
         float worstTime = mSharedPreferences.getFloat(String.format("%dWorst",DIFFICULTY), -1);
         SharedPreferences.Editor editor = mSharedPreferences.edit();
 
@@ -156,7 +163,10 @@ public class GameActivity extends Activity implements View.OnClickListener {
                 public void onClick(DialogInterface dialog, int id) {
                     // save the start time
                     startTime = System.currentTimeMillis();
-                    changeToMidFaceIn(bestTime);
+                    if (bestScore > 0) {
+                        // only change sun glasses face to others if score data is available.
+                        changeToMidFaceIn(bestTime);
+                    }
                     // create the first sentence
                     mainTextView.setText(senGen.generate(DIFFICULTY));
                     // this will hide the dialog
@@ -170,28 +180,32 @@ public class GameActivity extends Activity implements View.OnClickListener {
                 long timeDiff = System.currentTimeMillis() - startTime;
                 Float timeDiffSec = new Float(timeDiff/1000.0);
 
-                int score = calculateScore(mainEditText.getText().toString(), timeDiffSec);
+                int score = scorer.calculateScore(mainEditText.getText().toString(), timeDiff);
 
                 // test for high score
-                String dialogString = String.format(getResources().getString(R.string.sentenceTime), timeDiffSec);
-                if (bestTime < 0) {
+                String dialogString = getResources().getString(R.string.sentenceTime, timeDiffSec, score);
+                if (bestScore < 0) {
                     // there is no previous high-score information  timeDiffSec;
                     editor.putFloat(String.format("%dBest", DIFFICULTY), timeDiffSec);
+                    editor.putInt(String.format("%dBestScore", DIFFICULTY), score);
                     editor.putString(String.format("%dBestName", DIFFICULTY), userName);
+
                     editor.putFloat(String.format("%dWorst", DIFFICULTY), timeDiffSec);
+                    editor.putInt(String.format("%dWorstScore", DIFFICULTY), score);
                     editor.putString(String.format("%dWorstName", DIFFICULTY), userName);
-                } else if (timeDiffSec < bestTime) {
+                } else if (score > bestScore) {
                     // This means the high score has been beaten
                     dialogString = getResources().getString(R.string.sentenceHighScore) + dialogString;
                     editor.putFloat(String.format("%dBest", DIFFICULTY), timeDiffSec);
+                    editor.putInt(String.format("%dBestScore", DIFFICULTY), score);
                     editor.putString(String.format("%dBestName", DIFFICULTY), userName);
                 } else {
                     // The high score was not beaten
-                    dialogString = dialogString +
-                            String.format(getResources().getString(R.string.noHighScore), bestTime);
+                    dialogString = dialogString + getResources().getString(R.string.noHighScore, bestScore, bestTime);
                     // check if it's the worst score
                     if (timeDiffSec > worstTime) {
                         editor.putFloat(String.format("%dWorst", DIFFICULTY), timeDiffSec);
+                        editor.putInt(String.format("%dWorstScore", DIFFICULTY), score);
                         editor.putString(String.format("%dWorstName", DIFFICULTY), userName);
                     }
                 }
@@ -253,12 +267,5 @@ public class GameActivity extends Activity implements View.OnClickListener {
         }, ms2);
     }
 
-    private int calculateScore(String s, float time) {
-        int count = 0;
-        for (int i=0; i<s.length(); i++) {
-            count += (int) s.charAt(i);
-        }
-        return count + (int)(time/100);
-    }
 
 }

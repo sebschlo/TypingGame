@@ -90,6 +90,16 @@ public class MainActivity extends Activity implements View.OnClickListener {
             return true;
         }
 
+        // clear high scores
+        if (id == R.id.action_clear_scores) {
+            clearHighScores();
+        }
+
+        // exit app
+        if (id == R.id.action_quit_app) {
+            finish();
+        }
+
         return super.onOptionsItemSelected(item);
     }
 
@@ -153,8 +163,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
             public void onClick(DialogInterface dialog, int whichButton) {
                 // save name and update the textview
                 userName = input.getText().toString();
-                userNameView.setText(String.format(getResources().getString(R.string.userTextView),
-                        userName));
+                userNameView.setText(getResources().getString(R.string.userTextView, userName));
                 Toast.makeText(getApplicationContext(), "Welcome, " + userName + "!",
                         Toast.LENGTH_LONG).show();
             }
@@ -177,47 +186,79 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     private void updateScores() {
         mSharedPreferences = getSharedPreferences(PREFS, MODE_PRIVATE);
-        String best = "BEST:  %.2f seconds by %s.";
-        String worst = "WORST:  %.2f seconds by %s.";
+        String best = "BEST:  %d at %.2f seconds by %s.";
+        String worst = "WORST:  %d at %.2f seconds by %s.";
 
-        float hardBest = mSharedPreferences.getFloat("10Best", -1);
-        if (hardBest < 0) {
+        float hardBestTime = mSharedPreferences.getFloat("10Best", -1);
+        int hardBestScore = mSharedPreferences.getInt("10BestScore", -1);
+        if (hardBestScore < 0) {
             hardBestT.setText(getResources().getString(R.string.noScore));
             hardWorstT.setText(getResources().getString(R.string.noScore));
         } else {
-            hardBestT.setText(String.format(best, hardBest,
+            hardBestT.setText(String.format(best, hardBestScore, hardBestTime,
                     mSharedPreferences.getString("10BestName", "")));
             hardWorstT.setText(String.format(worst,
+                    mSharedPreferences.getInt("10WorstScore", -1),
                     mSharedPreferences.getFloat("10Worst", -1),
                     mSharedPreferences.getString("10WorstName", "")));
         }
 
 
-        float mediumBest = mSharedPreferences.getFloat("7Best", -1);
-        if (mediumBest < 0) {
+        float mediumBestTime = mSharedPreferences.getFloat("7Best", -1);
+        int mediumBestScore = mSharedPreferences.getInt("7BestScore", -1);
+        if (mediumBestScore < 0) {
             mediumBestT.setText(getResources().getString(R.string.noScore));
             mediumWorstT.setText(getResources().getString(R.string.noScore));
         } else {
-            mediumBestT.setText(String.format(best, mediumBest,
+            mediumBestT.setText(String.format(best, mediumBestScore, mediumBestTime,
                     mSharedPreferences.getString("7BestName", "")));
             mediumWorstT.setText(String.format(worst,
+                    mSharedPreferences.getInt("7WorstScore", -1),
                     mSharedPreferences.getFloat("7Worst", -1),
                     mSharedPreferences.getString("7WorstName", "")));
         }
 
 
-        float easyBest = mSharedPreferences.getFloat("4Best", -1);
-        if (easyBest < 0) {
+        float easyBestTime = mSharedPreferences.getFloat("4Best", -1);
+        int easyBestScore = mSharedPreferences.getInt("4BestScore", -1);
+        if (easyBestScore < 0) {
             easyBestT.setText(getResources().getString(R.string.noScore));
             easyWorstT.setText(getResources().getString(R.string.noScore));
         } else {
-            easyBestT.setText(String.format(best, easyBest,
+            easyBestT.setText(String.format(best, easyBestScore, easyBestTime,
                     mSharedPreferences.getString("4BestName", "")));
             easyWorstT.setText(String.format(worst,
+                    mSharedPreferences.getInt("4WorstScore", -1),
                     mSharedPreferences.getFloat("4Worst", -1),
                     mSharedPreferences.getString("4WorstName", "")));
         }
 
+    }
+
+
+    private void clearHighScores() {
+        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+        alert.setTitle(getResources().getString(R.string.clearScoreAlertTitle));
+        alert.setMessage(getResources().getString(R.string.clearScoreMessage));
+
+        // ok button to save name
+        alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                // clear all information in shared preferences
+                SharedPreferences.Editor editor = mSharedPreferences.edit();
+                editor.clear();
+                editor.commit();
+                updateScores();
+            }
+        });
+
+        // cancel button
+        alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {}
+        });
+
+        //show
+        alert.show();
     }
 
 }

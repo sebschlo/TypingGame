@@ -15,5 +15,6 @@ Android file in Canvas.
 COOL THINGS:
 
 - score data persists through shared preferences
-- you can switch users by tapping on the settings menu on the top action bar
--
+- you can log out / switch users by tapping on the settings menu on the top action bar
+- you can clear persistent high scores. button also found in settings menu
+- scores are calculated based on how far apart subsequent letters from the sentence are on a keyboard

@@ -7,7 +7,7 @@
     <string name="submit">Submit</string>
     <string name="cancel">Quit</string>
     <string name="hint">Type the sentence here!</string>
-    <string name="correct">Correct! It took you %.2f seconds to type the sentence. Do you want to play again? </string>
+    <string formatted="false" name="correct">Correct! It took you %.2f seconds to type the sentence. Do you want to play again? </string>
     <string name="incorrect">You failed! Do you want to try again?</string>
 
     <string name="game_details">Type the sentence!</string>
@@ -24,18 +24,21 @@
     <string name="userDialogTitle">Please sign in</string>
     <string name="userDialog">This will allow your name to be associated with your score</string>
 
-    <string name="userTextView">You are logged in as %s.</string>
+    <string formatted="false" name="userTextView">You are logged in as %s.</string>
 
     <string name="readyDialog">Welcome to TypingGame!</string>
     <string name="readyDialog2">Are you ready?</string>
 
-    <string name="sentenceTime">You typed the sentence in %.2f seconds! Would you like to play again?</string>
+    <string formatted="false" name="sentenceTime">You typed the sentence in %.2f seconds and scored %d! Would you like to play again?</string>
     <string name="sentenceHighScore">You beat the high score! </string>
-    <string name="noHighScore"> The current high-score is %.2f seconds</string>
+    <string formatted="false" name="noHighScore"> The current high-score is %d at %.2f seconds</string>
 
     <string name="notSignedIn">You need to sign in to play the game!</string>
 
     <string name="noScore">No scores available.</string>
-
+    <string name="clearScores">Clear High Scores</string>
+    <string name="clearScoreAlertTitle">Warning!</string>
+    <string name="clearScoreMessage">Are you sure you want to delete all high score information?</string>
+    <string name="exitApp">Quit App</string>
 
 </resources>

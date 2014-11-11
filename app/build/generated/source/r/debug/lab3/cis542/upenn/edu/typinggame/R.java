@@ -28,8 +28,11 @@ public final class R {
         public static final int sad_face=0x7f020004;
         public static final int sun_face=0x7f020005;
         public static final int sunglass_face=0x7f020006;
+        public static final int typewriter=0x7f020007;
     }
     public static final class id {
+        public static final int action_clear_scores=0x7f090011;
+        public static final int action_quit_app=0x7f090012;
         public static final int action_settings=0x7f090010;
         public static final int cancel_button=0x7f09000e;
         public static final int easyBest=0x7f090007;
@@ -59,30 +62,34 @@ public final class R {
         public static final int action_settings=0x7f060000;
         public static final int app_name=0x7f060001;
         public static final int cancel=0x7f060002;
-        public static final int correct=0x7f060003;
-        public static final int difficultyDialog=0x7f060004;
-        public static final int difficultyDialogTitle=0x7f060005;
-        public static final int game_details=0x7f060006;
-        public static final int game_title=0x7f060007;
-        public static final int hint=0x7f060008;
-        public static final int incorrect=0x7f060009;
-        public static final int mainText=0x7f06000a;
-        public static final int noHighScore=0x7f06000b;
-        public static final int noScore=0x7f06000c;
-        public static final int noUser=0x7f06000d;
-        public static final int notSignedIn=0x7f06000e;
-        public static final int play=0x7f06000f;
-        public static final int readyDialog=0x7f060010;
-        public static final int readyDialog2=0x7f060011;
-        public static final int score1=0x7f060012;
-        public static final int score2=0x7f060013;
-        public static final int score3=0x7f060014;
-        public static final int sentenceHighScore=0x7f060015;
-        public static final int sentenceTime=0x7f060016;
-        public static final int submit=0x7f060017;
-        public static final int userDialog=0x7f060018;
-        public static final int userDialogTitle=0x7f060019;
-        public static final int userTextView=0x7f06001a;
+        public static final int clearScoreAlertTitle=0x7f060003;
+        public static final int clearScoreMessage=0x7f060004;
+        public static final int clearScores=0x7f060005;
+        public static final int correct=0x7f060006;
+        public static final int difficultyDialog=0x7f060007;
+        public static final int difficultyDialogTitle=0x7f060008;
+        public static final int exitApp=0x7f060009;
+        public static final int game_details=0x7f06000a;
+        public static final int game_title=0x7f06000b;
+        public static final int hint=0x7f06000c;
+        public static final int incorrect=0x7f06000d;
+        public static final int mainText=0x7f06000e;
+        public static final int noHighScore=0x7f06000f;
+        public static final int noScore=0x7f060010;
+        public static final int noUser=0x7f060011;
+        public static final int notSignedIn=0x7f060012;
+        public static final int play=0x7f060013;
+        public static final int readyDialog=0x7f060014;
+        public static final int readyDialog2=0x7f060015;
+        public static final int score1=0x7f060016;
+        public static final int score2=0x7f060017;
+        public static final int score3=0x7f060018;
+        public static final int sentenceHighScore=0x7f060019;
+        public static final int sentenceTime=0x7f06001a;
+        public static final int submit=0x7f06001b;
+        public static final int userDialog=0x7f06001c;
+        public static final int userDialogTitle=0x7f06001d;
+        public static final int userTextView=0x7f06001e;
     }
     public static final class style {
         /**  Customize your theme here. 
