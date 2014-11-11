@@ -1,0 +1,100 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity"
+    android:background="@color/bg">
+
+    <TextView
+        android:id="@+id/scoreHard"
+        android:text="@string/score1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30dp"/>
+    <TextView
+        android:id="@+id/hardBest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/submit"
+        android:textSize="16dp"/>
+    <TextView
+        android:id="@+id/hardWorst"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/cancel"
+        android:textSize="16dp"
+        android:layout_marginBottom="30dp"/>
+
+
+
+    <TextView
+        android:id="@+id/scoreMedium"
+        android:text="@string/score2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30dp"/>
+    <TextView
+        android:id="@+id/mediumBest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/submit"
+        android:textSize="16dp"/>
+    <TextView
+        android:id="@+id/mediumWorst"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/cancel"
+        android:textSize="16dp"
+        android:layout_marginBottom="30dp"/>
+
+
+
+    <TextView
+        android:id="@+id/scoreEasy"
+        android:text="@string/score3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30dp"/>
+    <TextView
+        android:id="@+id/easyBest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/submit"
+        android:textSize="16dp"/>
+    <TextView
+        android:id="@+id/easyWorst"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/cancel"
+        android:textSize="16dp"
+        android:layout_marginBottom="30dp"/>
+
+
+
+    <Button
+        android:id="@+id/play_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/play"
+        android:background="@color/submit"
+        android:layout_marginBottom="20dp"/>
+
+    <TextView
+        android:id="@+id/username"
+        android:text="@string/noUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+
+
+
+</LinearLayout>
+<!-- From: file:/Users/Sebastian/AndroidStudioProjects/TypingGame/app/src/main/res/layout/activity_main.xml -->

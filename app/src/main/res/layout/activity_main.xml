@@ -12,42 +12,69 @@
     android:background="@color/bg">
 
     <TextView
-        android:id="@+id/score1"
+        android:id="@+id/scoreHard"
         android:text="@string/score1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20dp"/>
-    <ListView
-        android:id="@+id/hardList"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight=".25"/>
+        android:textSize="30dp"/>
+    <TextView
+        android:id="@+id/hardBest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/submit"
+        android:textSize="16dp"/>
+    <TextView
+        android:id="@+id/hardWorst"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/cancel"
+        android:textSize="16dp"
+        android:layout_marginBottom="30dp"/>
+
 
 
     <TextView
-        android:id="@+id/score2"
+        android:id="@+id/scoreMedium"
         android:text="@string/score2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20dp"/>
-    <ListView
-        android:id="@+id/mediumList"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight=".25" />
+        android:textSize="30dp"/>
+    <TextView
+        android:id="@+id/mediumBest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/submit"
+        android:textSize="16dp"/>
+    <TextView
+        android:id="@+id/mediumWorst"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/cancel"
+        android:textSize="16dp"
+        android:layout_marginBottom="30dp"/>
+
 
 
     <TextView
-        android:id="@+id/score3"
+        android:id="@+id/scoreEasy"
         android:text="@string/score3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20dp"/>
-    <ListView
-        android:id="@+id/easyList"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight=".25" />
+        android:textSize="30dp"/>
+    <TextView
+        android:id="@+id/easyBest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/submit"
+        android:textSize="16dp"/>
+    <TextView
+        android:id="@+id/easyWorst"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/cancel"
+        android:textSize="16dp"
+        android:layout_marginBottom="30dp"/>
+
 
 
     <Button
@@ -55,18 +82,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
         android:text="@string/play"
-        android:background="@color/submit"/>
+        android:background="@color/submit"
+        android:layout_marginBottom="20dp"/>
 
     <TextView
         android:id="@+id/username"
         android:text="@string/noUser"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"/>
+        android:layout_height="wrap_content"/>
 
 
 
